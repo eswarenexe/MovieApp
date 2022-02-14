@@ -17,6 +17,7 @@ public class MovieViewModel extends ViewModel {
     public LiveData<List<MovieModel>> getNowPlaying(Context context) {
         return repo.getNowPlaying(context);
     }
+    //then return livedata directly from the viewmodel
 
     public LiveData<List<MovieModel>> getPopular(Context context) {
         return repo.getPopular(context);

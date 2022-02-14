@@ -47,7 +47,7 @@ public class MovieRepo {
 
         return nowPlayingList;
     }
-
+//have to use setvalue instead of postvalue for setting the livedata.
     public MutableLiveData<List<MovieModel>> getPopular(Context context) {
         final MutableLiveData<List<MovieModel>> popularList = new MutableLiveData<>();
 

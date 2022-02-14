@@ -3,12 +3,14 @@ package com.example.movieapp.ui;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.movieapp.R;
 import com.example.movieapp.adapter.ParentAdapter;
 import com.example.movieapp.model.data.ParentModel;
+import com.example.movieapp.model.response.MovieModel;
 import com.example.movieapp.viewmodel.MovieViewModel;
 
 import java.util.ArrayList;
@@ -34,6 +36,8 @@ public class MovieListActivity extends AppCompatActivity {
     }
 
     private void observeGetNowPlaying() {
+
+        //call function and observe it like that
         mViewModel.getNowPlaying(this).observe(this, movieModels -> {
             parentModelArrayList.add(new ParentModel("Now Playing", movieModels));
             parentAdapter = new ParentAdapter(parentModelArrayList, this);
