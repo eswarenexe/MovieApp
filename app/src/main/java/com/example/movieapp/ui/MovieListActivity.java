@@ -1,7 +1,6 @@
 package com.example.movieapp.ui;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -29,13 +28,9 @@ public class MovieListActivity extends AppCompatActivity {
         rcvParent = findViewById(R.id.rcvParent);
         parentModelArrayList = new ArrayList<>();
         mViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
-        /*mViewModel.getPopular(this);
-        mViewModel.getUpcoming(this);*/
         observeGetNowPlaying();
-        parentAdapter = new ParentAdapter(parentModelArrayList, this);
-        rcvParent.setAdapter(parentAdapter);
-        //observePopular();
-        // observeUpcoming();
+        observePopular();
+        observeUpcoming();
     }
 
     private void observeGetNowPlaying() {
@@ -46,8 +41,8 @@ public class MovieListActivity extends AppCompatActivity {
         });
     }
 
- /*   private void observePopular() {
-        mViewModel.popularLiveData.observe(this, movieModels -> {
+    private void observePopular() {
+        mViewModel.getPopular(this).observe(this, movieModels -> {
             parentModelArrayList.add(new ParentModel("Popular", movieModels));
             parentAdapter = new ParentAdapter(parentModelArrayList, this);
             rcvParent.setAdapter(parentAdapter);
@@ -55,12 +50,12 @@ public class MovieListActivity extends AppCompatActivity {
     }
 
     private void observeUpcoming() {
-        mViewModel.upcomingLiveData.observe(this, movieModels -> {
+        mViewModel.getUpcoming(this).observe(this, movieModels -> {
             parentModelArrayList.add(new ParentModel("Upcoming", movieModels));
             parentAdapter = new ParentAdapter(parentModelArrayList, this);
             rcvParent.setAdapter(parentAdapter);
         });
-    }*/
+    }
 
 
 }

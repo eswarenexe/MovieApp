@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 public interface Apis {
 
     @GET("movie/now_playing")
-    Response<MovieResponseModel> getNowPlayingMovie(
+    Call<MovieResponseModel> getNowPlayingMovie(
             @Query("api_key") String apiKey,
             @Query("language") String language,
             @Query("page") int page
